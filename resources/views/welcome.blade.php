@@ -4,6 +4,7 @@
 
 @php
     $Randomizer = random_int(1, 100);
+    $dayOfToday = date("j");
 @endphp
 
 <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
@@ -39,7 +40,7 @@
                         <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">MAIN EXPERIENCE</h2>
 
                         <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            Get your mind absolutely blown up by the astonishingly amazing experience that is gambling in a slot machine. This is in fact, the main attraction of the experiment, any deviation to it must be stopped NOW.
+                            Get your mind absolutely blown up by the astonishingly amazing experience that is gambling in a slot machine. This is in fact, the main attraction of the experiment, any deviation from it must be stopped NOW.
                         </p>
                     </div>
 
@@ -104,9 +105,15 @@
         </div>
 
         <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-            <div class="text-center text-sm sm:text-left">
-                &nbsp;
-            </div>
+            @if((($Randomizer + $dayOfToday) % 3) == 0)
+                <div class="text-center text-smllr text-gray-500 dark:text-gray-400 sm:text-left">
+                    WHY AM I SO SMALL?1!?!1 THIS MUST BE AN ERROR!1!
+                </div>
+            @else
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
+                    THIS WEB IS IN DEVELOPMENT, ERRORS MAY OCCUR.
+                </div>
+            @endif
 
             <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                 Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
