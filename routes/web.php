@@ -21,12 +21,17 @@ Route::get('/', function () {
 
 Route::get('/MAIN', [TestController::class, 'main']);
 
+//Obteniendo info completa
 Route::get('/INFO', [TestController::class, 'index']);
+
+//Agregando información del nuevo sospechoso
 Route::post('/INFO', [TestController::class, 'store']);
 
 Route::post('/INFO/create', [TestController::class, 'check']);
 Route::get('/INFO/create', [TestController::class, 'create']);
 
+//Obteniendo info individual
 Route::get('/INFO/{lore_Id}', [TestController::class, 'show']);
+//Eliminando información del sospechoso
 Route::delete('/INFO/{lore_Id}', [TestController::class, 'destroy']);
 //En teoría, deberías haber hecho también el de actualizar, pero ahora tendrás que esperar al API
