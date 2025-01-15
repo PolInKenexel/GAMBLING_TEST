@@ -59,7 +59,6 @@ class TestController extends Controller
     }
 
     public function index(){
-        //$info = Lore::all();
         $info = Lore::orderBy('id')->get();
 
         return view('SLOT_MACHINE_RESULTS.INFO', [

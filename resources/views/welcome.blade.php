@@ -111,7 +111,7 @@
                 </div>
             @else
                 <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                    THIS WEB IS IN DEVELOPMENT, ERRORS MAY OCCUR.
+                    This web is in development, errors may occur.
                 </div>
             @endif
 

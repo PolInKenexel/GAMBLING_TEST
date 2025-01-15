@@ -14,7 +14,7 @@ class LoreController extends Controller
 
         if($info->isEmpty()){
             $data = [
-                'message' => 'No hay sospechosos en este caso',
+                'message' => 'No suspicious ones today',
                 'status' => 200
             ];
             return response()->json($data, 200);
@@ -23,8 +23,8 @@ class LoreController extends Controller
         return response()->json($info, 200);
     }
 
-    public function store(){
-        //FALTA VERIFICAR QUE ESTA FUNCIÓN SIRVA, LO PRUEBAS DESPUÉS
+    public function store(Request $request){
+        
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'age' => 'required',
@@ -34,7 +34,7 @@ class LoreController extends Controller
 
         if($validator->fails()){
             $data = [
-                'message' => 'Error con los datos del sospechoso',
+                'message' => 'Error, incomplete suspicious information',
                 'errors' => $validator->errors(),
                 'status' => 400
             ];
@@ -52,11 +52,16 @@ class LoreController extends Controller
 
         if(!$lore){
             $data = [
-                'message' => 'Error al añadir al sospechoso',
+                'message' => 'Error, unable to create suspicious register',
                 'status' => 500
             ];
             return response()->json($data, 500);
         }
+
+        $data = [
+            'INFO' => $lore,
+            'status' => 201
+        ];
 
         return response()->json($data, 201);
     }
